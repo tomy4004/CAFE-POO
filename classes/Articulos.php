@@ -105,15 +105,45 @@ class Articulos
         $nombre = $nacionalidad->getPais();
         return $nombre;
     }
-    public function getGuion()
+
+
+    public function getVariedades()
     {
 
         $variedades = (new Variedades())->get_x_id($this->id_variedades);
-        $nombre = $variedades->gettipo();
+        $nombre = $variedades->getTipo();
         return $nombre;
     }
 
     
+
+    
+    public function insert($nombre,$peso,$varietal,$notas,$sensaciones,$precio,$portada,$id_variedades,$id_nacionalidad){
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = " INSERT INTO articulos VALUES(null, :nombre, :peso, :varietal, :notas, :sensaciones, :precio, :portada, :id_variedades, :id_nacionalidad)";
+   
+    $PDOStatement = $conexion->prepare($query);
+
+    $PDOStatement->execute(
+        [
+            'nombre' => $nombre,
+            'peso' => $peso,
+            'varietal' => $varietal,
+            'notas' => $notas,
+            'sensaciones' => $sensaciones,
+            'portada' => $portada,
+            'precio' => $precio,
+            'id_variedades' => $id_variedades,
+            'id_nacionalidad' => $id_nacionalidad,
+       
+
+        ]
+        );
+
+    }
+
     
 
 

@@ -1,10 +1,8 @@
 
 <?php
 
-require_once "classes/Conexion.php";
-require_once "classes/Variedades.php";
-require_once "classes/Articulos.php";
-require_once "classes/Nacionalidad.php";
+
+require_once "function/autoload.php";
 
 
 

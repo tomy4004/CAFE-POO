@@ -1,13 +1,10 @@
 <?php
 
-require_once "libraries/productos.php";
+$id = $_GET['id'] ?? FALSE;
 
-$id = $_GET["id"] ?? FALSE;
+$miObjetoArticulos = new Articulos();
 
-
-$infuciones = producto_x_id($id);
-
-
+$articulos = $miObjetoArticulos->producto_x_id($id);
 
 
 
@@ -18,32 +15,30 @@ $infuciones = producto_x_id($id);
 ?>
 
 <div class="row">
-    <?php if (isset($infuciones)) { ?>
-        <h1 class="text-center my-5"> <?= $infuciones["formato de cafe"] ?>  <?= $infuciones["nombre"] ?>
-            # <?= $infuciones["nacionalidad"] ?></h1>
+    <?php if (isset($articulos)) { ?>
+        <h1 class="text-center my-5"> <?= $articulos->getNombre() ?></h1>
         <div class="col">
             <div class="card mb-5">
                 <div class="row g-0">
                     <div class="col-5">
-                        <img class="img-fluid rounded-start" src="img/<?= $infuciones["portada"] ?>" alt="<?= $infuciones["nombre"] ?>">
-
+                    <img class="img-fluid rounded-start" src="img/<?= $articulos->getPortada() ?>" alt="">
                     </div>
                     <div class="col-7 d-flex flex-colum p-3">
                         <div class="card-body flex-grow-0">
-                            <h2 class="fs-4 m-0 fw-bold text-danger"><?= $infuciones["nombre"] ?> <?= $infuciones["formato de cafe"] ?>
+                            <h2 class="fs-4 m-0 fw-bold text-danger"><?= $articulos->getnombre() ?> <?= $articulos->getVariedades()?>
                                 </h2>
-                                <h2 class="fs-4 m-0 fw-bold text-danger"><?= $infuciones["nacionalidad"] ?>
+                                <h2 class="fs-4 m-0 fw-bold text-danger"><?= $articulos->getNacionalidad() ?>
                             
-                            <h2 class="card-title fs-2 mb-4"><?= $infuciones["peso"] ?>
+                            <h2 class="card-title fs-2 mb-4"><?= $articulos->getPeso() ?>
 
                             </h2>
-                            <h3 class="card-text ">varietal - <?= $infuciones["varietal"] ?></h3>
+                            <h3 class="card-text ">varietal - <?= $articulos->getVarietal() ?></h3>
 
                             <div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Notas : <?= $infuciones["notas"] ?></li>
-                                    <li class="list-group-item">Sensaciones : <?= $infuciones["sensaciones"] ?></li>
-                                    <li class="list-group-item">Altura :<?= $infuciones["altura"] ?></li>
+                                    <li class="list-group-item">Notas : <?= $articulos->getNotas() ?></li>
+                                 
+                                   
 
                                 </ul>
 
@@ -58,7 +53,7 @@ $infuciones = producto_x_id($id);
                                   </div>
                             </div>
                                 <div class="card-body">
-                                    <p class="fs-3 mb-3 fw-bold text-danger text-center"><?= $infuciones["precio"] ?></p>
+                                    <p class="fs-3 mb-3 fw-bold text-danger text-center"><?= $articulos->getPrecio() ?></p>
                                     <a href="#" class="btn btn-danger w-100 fw-bold">Comprar</a>
 
                                 </div>

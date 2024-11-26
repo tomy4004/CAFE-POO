@@ -7,6 +7,30 @@
         protected $tipo;
         
 
+              //metodos
+        //devolver el listado completo de personajes 
+
+        public function lista_completa() : array {
+            $resultado= [];
+
+            $conexion = (new conexion())->getConexion();
+
+            $query = "SELECT * FROM variedades";
+
+
+            $PDOStatement = $conexion->prepare($query);
+
+            $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+            $PDOStatement->execute();
+
+            $resultado = $PDOStatement->fetchAll();
+
+            return $resultado;
+
+
+        }
+
 
         public function get_x_id(int $id){
     
