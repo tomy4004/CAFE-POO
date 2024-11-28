@@ -91,6 +91,96 @@ class Articulos
         return $resultado;
     }
 
+    public function get_x_id(int $id){
+         
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "SELECT * FROM articulos WHERE id = $id";
+
+
+        $PDOStatement = $conexion->prepare($query);
+
+        $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+        $PDOStatement->execute();
+
+        $resultado = $PDOStatement->fetch();
+
+        if(!$resultado){
+            return null;
+        }
+
+        return $resultado;
+
+    }
+
+    
+        /* EDITAR */
+
+        public function edit($nombre,$peso,$varietal,$notas,$sensaciones,$precio,$id){
+
+            $conexion = (new Conexion())->getConexion();
+
+            $query = "UPDATE articulos  SET nombre =:nombre,peso = :peso,varietal =:varietal,notas = :notas,sensaciones = :sensaciones,precio = :precio WHERE ID = :id";
+                   
+       
+        $PDOStatement = $conexion->prepare($query);
+
+        $PDOStatement->execute(
+            [       'id'=> $id,
+                    'nombre' => $nombre,
+                    'peso' => $peso,
+                    'varietal' => $varietal,
+                    'notas' => $notas,
+                    'sensaciones' => $sensaciones,
+                    'precio' => $precio
+                    
+
+            ]
+            );
+
+
+    }
+    /*metodo reemplazar imagen*/
+
+    
+    public function reemplazar_imagen($imagen,$id){
+
+            $conexion = (new Conexion())->getConexion();
+
+            $query = "UPDATE articulos  SET imagen = :imagen WHERE id = :id";
+                   
+       
+        $PDOStatement = $conexion->prepare($query);
+
+        $PDOStatement->execute(
+            [       'id'=> $id,
+                    'imagen'=> $imagen
+                    
+
+            ]
+            );
+    }
+
+
+      //borrar Imagen 
+
+    public function delete() {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "DELETE FROM articulos  WHERE id =  ?";
+       
+
+        $PDOStatement = $conexion->prepare($query);
+
+        $PDOStatement->execute([$this->id]);
+        
+            
+    }
+        
+
 
 
 
@@ -105,15 +195,47 @@ class Articulos
         $nombre = $nacionalidad->getPais();
         return $nombre;
     }
-    public function getGuion()
+
+
+    public function getVariedades()
     {
 
         $variedades = (new Variedades())->get_x_id($this->id_variedades);
-        $nombre = $variedades->gettipo();
+        $nombre = $variedades->getTipo();
         return $nombre;
     }
 
+   
+
     
+
+    
+    public function insert($nombre,$peso,$varietal,$notas,$sensaciones,$precio,$portada,$id_variedades,$id_nacionalidad){
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = " INSERT INTO articulos VALUES(null, :nombre, :peso, :varietal, :notas, :sensaciones, :precio, :portada, :id_variedades, :id_nacionalidad)";
+   
+    $PDOStatement = $conexion->prepare($query);
+
+    $PDOStatement->execute(
+        [
+            'nombre' => $nombre,
+            'peso' => $peso,
+            'varietal' => $varietal,
+            'notas' => $notas,
+            'sensaciones' => $sensaciones,
+            'portada' => $portada,
+            'precio' => $precio,
+            'id_variedades' => $id_variedades,
+            'id_nacionalidad' => $id_nacionalidad,
+       
+
+        ]
+        );
+
+    }
+
     
 
 

@@ -38,7 +38,7 @@ die();*/
             <div class="card-body">
                 <p class="fs-6 m-0 fw-bold text-danger"><?=$articulos->getPeso() ?></p>
                 <h5 class="card-title"><?=$articulos->getNombre() ?></h5>
-                <p class="card-text"><?=$articulos->getId_nacionalidad ()?></p>
+                <p class="card-text"><?=$articulos->getNacionalidad ()?></p>
             </div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Notas: <?=$articulos->getNotas() ?></li>
@@ -47,7 +47,7 @@ die();*/
             </ul>
             <div class="card-body">
                 <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?=$articulos->getPrecio () ?></p>
-                <a href= "index.php?sec=productos&id=<?= $infuciones['id'] ?>"class="btn btn-danger w-100 fw-bold" >VER MÁS</a>
+                <a href="index.php?sec=productos&id=<?= $articulos->getId() ?>" class="btn btn-danger w-100 fw-bold" >VER MÁS</a>
             </div>
 
         </div>

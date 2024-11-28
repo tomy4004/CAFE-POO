@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 13:02:02
+-- Tiempo de generación: 26-11-2024 a las 18:15:39
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,9 +47,9 @@ CREATE TABLE `articulos` (
 INSERT INTO `articulos` (`id`, `nombre`, `peso`, `varietal`, `notas`, `sensaciones`, `precio`, `portada`, `id_variedades`, `id_nacionalidad`) VALUES
 (1, 'Montivelo', '500 grs', 'Caturra y Typica', 'Caramelo ,Chocolate', 'Suave en Boca', '20000', '01-grano.jpg', 2, 2),
 (2, 'Bistreo', '1000 grs', 'Mundo Novo', 'Manzana, Chocolate y Nuez', 'Strong', '17000', '02-grano.jpg', 2, 7),
-(3, 'San Juan Valdez', '500 grs', 'Caturra y Bourbon', 'mandarina, miel y caña de azúc', 'delicado', '450000', '3-grano.jpg', 2, 7),
+(3, 'San Juan Valdez', '500 grs', 'Caturra y Bourbon', 'mandarina, miel y caña de azúc', 'delicado', '450000', '03-grano.jpg', 2, 7),
 (4, 'Lavazza', '500 grs', 'Aromatica', 'madera', 'Notas de Nuez', '56000', '04-grano.jpg', 2, 4),
-(5, 'Bonafide', '500 grs', 'caturra', 'Durazno, Nuez, Chocolate Amarg', 'Acidez baja y delicada, cuerpo', '20000', '05-grano.jp', 2, 2),
+(5, 'Bonafide', '500 grs', 'caturra', 'Durazno, Nuez, Chocolate Amarg', 'Acidez baja y delicada, cuerpo', '20000', '05-grano.jpg', 2, 2),
 (6, 'Bonafide', '1000 grs', 'Caturra - Catuai', 'Caña de azucar, Caramelo y ave', 'suave en boca', '30000', '06-grano.jpg', 2, 2),
 (13, '5 Hispanos', '250 grs', 'moka', 'caramelo ,chocolate', 'acido', '9000', '07-torrado.jpg', 1, 3),
 (14, 'Bonafide', '3 kgs', 'azuzu , durazno', 'Durazno y nuez', 'Complejo', '27000', '08-torrado.jpg', 1, 2),
@@ -57,7 +57,7 @@ INSERT INTO `articulos` (`id`, `nombre`, `peso`, `varietal`, `notas`, `sensacion
 (16, '3 caracoes', '500 grs', 'Aromatica', 'frutos rojos', 'suave', '4000', '10-torrado.jpg', 1, 2),
 (17, 'La Morenita', '500 grs', 'cazurra ,itau', 'mandarina y avellanas', 'delicada, cuerpo Alto', '37000', '11-torrado.jpg', 1, 7),
 (18, 'Oro Negro', '500 grs', 'pache comun', 'Avellanas', 'suave en boca', '140000', '12-torrado.jpg', 1, 3),
-(25, 'Monti', '500 grs', 'ypica', 'dulces y frutales', 'aspero en garganta', '20000', '13-tostado.jpg', 3, 2),
+(25, 'La Virginia', '500 grs', 'ypica', 'dulces y frutales', 'aspero en garganta', '20000', '13-tostado.jpg', 3, 2),
 (26, 'La Virginia', '500 grs', 'pache colis', 'Manzana, chocolate y nuez', 'strong', '17000', '14-tostado.jpg', 3, 7),
 (27, 'Martinez', '500 grs', 'scotish', 'limon y castañas', 'sabroso y suave', '33000', '15-tostado.jpg', 3, 2),
 (28, 'Martinez', '500 grs', 'sativo', 'uva y miel', 'Fuerte', '66000', '16-tostado.jpg', 3, 4),

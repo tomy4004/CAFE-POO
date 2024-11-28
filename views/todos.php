@@ -1,9 +1,9 @@
 <?php
    
 
-   $miObjetoComic = new Articulos();
+   $miObjetoArticulos = new Articulos();
 
-   $productos = $miObjetoComic->catalogo_completo()
+   $productos = $miObjetoArticulos->catalogo_completo()
 ?>
 
 
@@ -16,24 +16,26 @@
 <div class="row">
 
     <?php    if(count($productos))  {   ?> 
-    <?php foreach ($productos as $infuciones) { ?>
+    <?php foreach ($productos as $articulos) { ?>
     
-    <div class="col-4">
+        <div class="col-4">
         <div class="card mb-3">
-            <img src="img/<?=$infuciones['portada'] ?>" class="card-img-top" alt="<?=$infuciones['clase'] ?>">
+            <img src="img/<?=$articulos->getPortada() ?>" class="card-img-top" alt="" style="max-height: 350px;">
+        
+
             <div class="card-body">
-                <p class="fs-6 m-0 fw-bold text-danger"><?=$infuciones['clase'] ?> - <?=$infuciones['nacionalidad'] ?>   
-                <h5 class="card-title"><?=$infuciones['nombre'] ?></h5>
-                <p class="card-text"><?=($infuciones['sensaciones']) ?></p>
+                <p class="fs-6 m-0 fw-bold text-danger"><?=$articulos->getPeso() ?></p>
+                <h5 class="card-title"><?=$articulos->getNombre() ?></h5>
+                <p class="card-text"><?=$articulos->getId_nacionalidad ()?></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Notas: <?=$infuciones['notas'] ?></li>
-                <li class="list-group-item">Varietal: <?=$infuciones['varietal'] ?></li>
-                <li class="list-group-item">Nacionalidad: <?=$infuciones['nacionalidad'] ?></li>
+                <li class="list-group-item">Notas: <?=$articulos->getNotas() ?></li>
+                <li class="list-group-item">Varietal: <?=$articulos->getVarietal() ?></li>
+                <li class="list-group-item">Sensaciones: <?=$articulos->getSensaciones() ?></li>
             </ul>
             <div class="card-body">
-                <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?=$infuciones['precio'] ?></p>
-                <a href="#" class="btn btn-danger w-100 fw-bold" >VER MÁS</a>
+                <p class="fs-3 mb-3 fw-bold text-danger text-center">$<?=$articulos->getPrecio () ?></p>
+                <a href="index.php?sec=productos&id=<?= $articulos->getId() ?>" class="btn btn-danger w-100 fw-bold" >VER MÁS</a>
             </div>
 
         </div>

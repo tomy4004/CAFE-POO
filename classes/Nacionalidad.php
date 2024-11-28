@@ -6,6 +6,30 @@
         protected $id;
         protected $pais;
         protected $altura;
+
+
+
+        public function lista_completa() : array {
+            $resultado= [];
+
+            $conexion = (new conexion())->getConexion();
+
+            $query = "SELECT * FROM nacionalidad";
+
+
+            $PDOStatement = $conexion->prepare($query);
+
+            $PDOStatement->setFetchMode(PDO::FETCH_CLASS, self::class);
+
+            $PDOStatement->execute();
+
+            $resultado = $PDOStatement->fetchAll();
+
+            return $resultado;
+
+
+        }
+
     
 
 
@@ -32,6 +56,26 @@
             return $resultado;
     
         }
+
+        public function insert($pais,$altura){
+
+            $conexion = (new Conexion())->getConexion();
+    
+            $query = " INSERT INTO nacionalidad VALUES(null, :pais, :altura)";
+       
+        $PDOStatement = $conexion->prepare($query);
+    
+        $PDOStatement->execute(
+            [
+                'pais' => $pais,
+                'altura' => $altura
+                
+    
+            ]
+            );
+    
+        }
+
 
 
 
