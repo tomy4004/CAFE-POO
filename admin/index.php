@@ -8,6 +8,7 @@ require_once "../function/autoload.php";
 $secciones_validas = [
 
   "login" => [
+<<<<<<< HEAD
         "titulo" => "Inicio de sesion",
         "restringido" => FALSE
   ],
@@ -50,6 +51,40 @@ $secciones_validas = [
      "delete_variedades" => [
       "titulo" => "Borrar variedades",
       "restringido" => TRUE
+=======
+        "titulo" => "Inicio de sesion"
+  ],
+     "dashboard" => [
+        "titulo" => "Panel de control"
+     ],
+     "admin_articulos" => [
+        "titulo" => "Administrador de articulos"
+     ],
+     "add_articulos"=> [
+        "titulo" => "Agregar Articulos"
+
+     ],
+     "edit_articulos"=> [
+        "titulo" => "Editar Articulos"
+
+     ],
+     "delete_articulos"=>[
+       "titulo" => "Eliminar Articulos"
+     ],
+     "admin_variedades" =>[
+      "titulo" => "Administar Variedades"
+     ],
+     "add_variedades" =>[
+      "titulo" => "Cargar Variedades"
+     ],
+     
+     "edit_variedades" => [
+      "titulo" => "Editar Variedades"
+     ],
+
+     "delete_variedades" => [
+      "titulo" => "Borrar variedades"
+>>>>>>> b113fc67ecc959c4eba98a21caa621aa78ff1326
      ]
 
 
@@ -68,9 +103,12 @@ $secciones_validas = [
       $titulo = "404 - pagina no encontrada";
   }else {
      $vista= $seccion;
+<<<<<<< HEAD
      if($secciones_validas[$seccion]['restringido']){
       (new Autenticacion())->verify();
 }
+=======
+>>>>>>> b113fc67ecc959c4eba98a21caa621aa78ff1326
      $titulo = $secciones_validas[$seccion]['titulo'];
   }
 
@@ -113,6 +151,7 @@ $secciones_validas = [
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
         <li class="nav-item">
+<<<<<<< HEAD
           <a class="nav-link <?= $userData ? "" : "d-none" ?>" aria-current="page" href="index.php?dashboard">Dashboard</a>
         </li>
         <li class="nav-item">
@@ -126,6 +165,21 @@ $secciones_validas = [
         </li>
         <li class="nav-item">
           <a class="nav-link <?= $userData ? "" : "d-none" ?>" aria-current="page" href="actions/auth_logout.php">LogOut</a>
+=======
+          <a class="nav-link" aria-current="page" href="index.php?dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.php?sec=admin_articulos">Admin de Articulos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.php?sec=admin_comics">Admin de Variedades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.php?sec=login">login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.php?sec=auth_logout.php">LogOut</a>
+>>>>>>> b113fc67ecc959c4eba98a21caa621aa78ff1326
         </li>
  
  
